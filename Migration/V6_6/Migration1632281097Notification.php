@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace SnapAdmin\Administration\Migration\V6_4;
+namespace SnapAdmin\Administration\Migration\V6_6;
 
 use Doctrine\DBAL\Connection;
 use SnapAdmin\Core\Framework\Log\Package;
@@ -12,28 +12,27 @@ use SnapAdmin\Core\Framework\Migration\MigrationStep;
  * @codeCoverageIgnore
  */
 #[Package('core')]
-class Migration1660813696AddAppAdministrationSnippet extends MigrationStep
+class Migration1632281097Notification extends MigrationStep
 {
     public function getCreationTimestamp(): int
     {
-        return 1660813696;
+        return 1632281097;
     }
 
     public function update(Connection $connection): void
     {
         $connection->executeStatement('
-            CREATE TABLE IF NOT EXISTS `app_administration_snippet` (
+            CREATE TABLE IF NOT EXISTS `notification` (
                 `id` BINARY(16) NOT NULL,
-                `app_id` BINARY(16) NOT NULL,
-                `locale_id` BINARY(16) NOT NULL,
-                `value` JSON NOT NULL,
+                `status` VARCHAR(255) NOT NULL,
+                `message` VARCHAR(5000) NOT NULL,
+                `admin_only` tinyint(1) NOT NULL DEFAULT 0,
+                `required_privileges` json NULL,
+                `created_by_user_id` BINARY(16) NULL,
                 `created_at` DATETIME(3) NOT NULL,
                 `updated_at` DATETIME(3) NULL,
                 PRIMARY KEY (`id`),
-                CONSTRAINT `fk.app_id` FOREIGN KEY (`app_id`)
-                    REFERENCES `app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                CONSTRAINT `fk.locale_id` FOREIGN KEY (`locale_id`)
-                    REFERENCES `locale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+                CONSTRAINT `fk.notification.created_by_user_id` FOREIGN KEY (`created_by_user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
         ');
     }
