@@ -29,7 +29,7 @@ export default SnapAdmin.Component.wrapComponentConfig({
         unsubscribeStore: (() => void)|null,
         form: {
             password: string,
-            shopwareId: string,
+            snapId: string,
         },
         } {
         return {
@@ -37,7 +37,7 @@ export default SnapAdmin.Component.wrapComponentConfig({
             unsubscribeStore: null,
             form: {
                 password: '',
-                shopwareId: '',
+                snapId: '',
             },
         };
     },
@@ -97,7 +97,7 @@ export default SnapAdmin.Component.wrapComponentConfig({
             this.isLoading = true;
 
             try {
-                await this.storeService.login(this.form.shopwareId, this.form.password);
+                await this.storeService.login(this.form.snapId, this.form.password);
 
                 this.$emit('login-success');
 

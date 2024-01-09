@@ -15,18 +15,6 @@
                 </template>
             {% endblock %}
 
-            {% block sw_extension_store_index_slot_tabs %}
-                <template #page-tabs>
-                    {% block sw_extension_store_index_tabs %}
-                        {% block sw_extension_store_index_tabs_extensions_app %}
-                            <sw-tabs-item :route="{ name: 'sw.extension.store.listing.app' }" :disabled="!isAvailable">
-                                {{ $tc('sw-extension-store.tabs.apps') }}
-                            </sw-tabs-item>
-                        {% endblock %}
-                    {% endblock %}
-                </template>
-            {% endblock %}
-
             {% block sw_extension_store_index_slot_default %}
                 <template #default>
 

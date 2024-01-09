@@ -29,13 +29,13 @@ export default class StoreApiService extends ApiService {
         this.name = 'storeService';
     }
 
-    public async login(shopwareId: string, password: string) {
+    public async login(snapId: string, password: string) {
         const headers = this.getBasicHeaders();
         const params = this.getBasicParams();
 
         await this.httpClient.post(
             `/_action/${this.getApiBasePath()}/login`,
-            { shopwareId, password },
+            { snapId, password },
             { params, headers },
         );
     }

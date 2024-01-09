@@ -45,7 +45,7 @@ const snapAdminExtensionsStore: Module<SnapAdminExtensionsState, VuexRootState> 
                 data: [],
             },
             userInfo: null,
-            shopwareId: null,
+            snapId: null,
             loginStatus: false,
             licensedExtensions: {
                 loading: false,

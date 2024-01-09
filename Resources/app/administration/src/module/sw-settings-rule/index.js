@@ -97,10 +97,10 @@ Module.register('sw-settings-rule', {
         },
     },
 
-    settingsItem: {
-        group: 'system',
-        to: 'sw.settings.rule.index',
-        icon: 'ruler',
-        privilege: 'rule.viewer',
-    },
+    // settingsItem: {
+    //     group: 'system',
+    //     to: 'sw.settings.rule.index',
+    //     icon: 'ruler',
+    //     privilege: 'rule.viewer',
+    // },
 });

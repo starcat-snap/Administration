@@ -148,10 +148,10 @@ Module.register('sw-flow', {
         },
     },
 
-    settingsItem: {
-        group: 'system',
-        to: 'sw.flow.index',
-        icon: 'cpu',
-        privilege: 'flow.viewer',
-    },
+    // settingsItem: {
+    //     group: 'system',
+    //     to: 'sw.flow.index',
+    //     icon: 'cpu',
+    //     privilege: 'flow.viewer',
+    // },
 });
